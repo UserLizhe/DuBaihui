@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.JiankongDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.JiankongEntity" id="jiankongMap">
+        <result property="title" column="title"/>
+        <result property="introduction" column="introduction"/>
+        <result property="picture" column="picture"/>
+
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.JiankongVO" >
+		SELECT * FROM jiankong  jiankong
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.JiankongVO" >
+		SELECT  jiankong.* FROM jiankong  jiankong
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.JiankongView" >
+
+		SELECT  jiankong.* FROM jiankong  jiankong
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.JiankongView" >
+		SELECT * FROM jiankong  jiankong <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
